@@ -1,8 +1,8 @@
 const button = document.querySelector('button');
 
 function changeHeading() {
-    const heading = document.querySelector('#spell1');
-    heading.textContent = "Cast";
+    const heading2 = document.querySelector('#spell2');
+    heading2.textContent = "Cast";
 }
 button.addEventListener('click', changeHeading);
 
