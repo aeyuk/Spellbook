@@ -1,4 +1,4 @@
-const button = document.querySelector('button');
+const button = document.querySelector('button'); //
 const input = document.querySelector('input');
 
 function changeHeading() {
@@ -14,3 +14,4 @@ document.querySelector('form').addEventListener('submit', function(e) {
         changeHeading(); 
     }
 });
+
