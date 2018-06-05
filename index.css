@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+body {
+    background-image: url(wood_preview.jpeg);
+    background-size: cover;
+    font-family: 'Dancing Script', cursive;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    color: white;
+    font-size: 8mm;
+}
