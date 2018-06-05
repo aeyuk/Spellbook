@@ -8,9 +8,9 @@ function changeHeading() {
 
 button.addEventListener('click', changeHeading);
 
-
-input.addEventListener('keyup', function(event) {
+document.querySelector('form').addEventListener('submit', function(e) {
+    event.preventDefault();
     if (event.keyCode === 13) {
-        button.click();
+        changeHeading(); 
     }
 });
