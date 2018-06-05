@@ -9,22 +9,31 @@
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 <body>
-    <h1 id="spell1" >Spellbook</h1>
-    <h2 id="spell2" >Wingardium Leviosa</h2>
-    <h2 id="spell3" >Expelliarmus</h2> 
+    <h1 id="title" >Spellbook</h1>
 
-    <form>
-        <!-- <label for="spellName">Spell Name </label> -->
-        <input 
-            type="text" 
-            id="newSpell" 
-            name="spellName" 
-            placeholder="Enter a spell name"
-            autofocus
-        >
-        <button type="submit">Change Text</button>  
-    </form>
-    
+    <main>
+        <form>
+            <!-- <label for="spellName">Spell Name </label> -->
+            <input 
+                type="text" 
+                id="newSpell" 
+                name="spellName" 
+                placeholder="Enter a spell name"
+                autofocus
+            >
+            <input
+                type="text"
+                id="newLevel"
+                name="spellLevel"
+                placeholder="Enter spell difficulty"
+            >
+            <button type="submit">Submit</button>  
+        </form>
+        
+            <ul class="spells" id="s"></ul>
+            <ul class="levels" id="l"></ul>
+    </main>
+
     <script src="index.js"></script>
     
 </body>
