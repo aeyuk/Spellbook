@@ -1,46 +1,57 @@
-const makeSpanElement = function(name, value) {
-  const el = document.createElement('span');
-  el.classList.add(name); //add class to span
-  el.textContent = value; //change text
-  return el;
-}
+const app = {
+  init: function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', ev => {
+      this.addToList(ev);
+    })
+  },
+
+  makeSpanElement: function(name, value) {
+    const el = document.createElement('span');
+    el.classList.add(name); //add class to span
+    el.textContent = value; //change text
+    return el;
+  },
 
 
-const makeListElement = function(spell) {
-  spellProperties = Object.keys(spell); //gets array of spans
-  const spanArray = spellProperties.map(function(prop) {
-    return makeSpanElement(prop, spell[prop]);
-  });
+  makeListElement: function(spell) {
+    spellProperties = Object.keys(spell);
 
-  const listItem = document.createElement('li');
-  listItem.classList.add('spell');
+    const spanArray = spellProperties.map(prop => {
+      return this.makeSpanElement(prop, spell[prop])
+    })
 
-  spanArray.forEach(function(el) {
-    listItem.appendChild(el);
-  });
+    const listItem = document.createElement('li');
+    listItem.classList.add('spell');
 
-  return listItem;
-}
+    spanArray.forEach(el => {
+      listItem.appendChild(el);
+    });
 
+    return listItem;
+  },
 
+  addToList: function(ev) {
+    ev.preventDefault();
 
-const addToList = function(ev) {
-  ev.preventDefault();
+    const f = ev.target;
 
-  const f = ev.target;
+    //spell obj
+    const spell = {
+      name: f.spellName.value,
+      time: f.spellTime.value,
+    } 
 
-  //spell obj
-  const spell = {
-    name: f.spellName.value,
-    time: f.spellTime.value,
+    const listItem = this.makeListElement(spell);
+
+    const spellList = document.querySelector('#s').appendChild(listItem);
+
+    f.reset();
+  },
+
+  addToArray: function(ev) {
+
   }
-
-  const listItem = makeListElement(spell);
-
-  const spellList = document.querySelector('#s').appendChild(listItem);
-
-  f.reset();
 }
 
-const form = document.querySelector('form');
-form.addEventListener('submit', addToList);
+app.init();
