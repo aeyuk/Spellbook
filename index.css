@@ -131,7 +131,7 @@ main {
   height: calc(100vh - 18.5vw - 4rem);
   overflow-y: scroll;
   font-family: "Homemade Apple", cursive;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: rgba(100, 50, 0, 0.8);
   padding: 1.5rem 4rem;
   box-shadow: 1px 1px 15px  rgba(0,0,0,0.4);
@@ -155,10 +155,10 @@ main {
 .name {
   font-weight: 900;
   width: 80%;
-  overflow-x: hidden;
+  overflow-x: scroll;
   text-overflow: ellipses;
   white-space: nowrap;
-  padding-left: 0.1em;
+  padding-left: 0.3em;
 }
 
 ul#s {
