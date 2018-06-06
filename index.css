@@ -40,8 +40,10 @@ h1 {
   font-size: 8vw;
 }
 
-h3 {
+h4 {
+  font-size: 2.1rem;
   text-decoration: underline;
+  font-weight: 900;
 }
 
 form {
@@ -127,27 +129,37 @@ main {
   height: calc(100vh - 18.5vw - 4rem);
   overflow-y: scroll;
   font-family: "Homemade Apple", cursive;
-  font-size: 20px;
+  font-size: 1.8rem;
   color: rgba(100, 50, 0, 0.8);
   padding: 1.5rem 4rem;
   box-shadow: 1px 1px 15px  rgba(0,0,0,0.4);
 }
 
+.spell {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sTime {
+  flex-grow: 1;
+}
+
+.time {
+  color:rgb(170, 50, 50);
+  font-weight: lighter;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.name {
+  font-weight: 900;
+}
 
 ul#s {
     list-style-type: none;
     padding: 0;
-    display: block;
-    float: left;
     font-weight: 900;
 }
 
-ul#t {
-    list-style-type: none;
-    float: left;
-    padding: 1;
-    color: green;
-}
 
 .details {
   font-size: 0.7em;

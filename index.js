@@ -39,6 +39,7 @@ const addToList = function(ev) {
     timeSpan.textContent = f.spellTime.value;
 
     const listItem = document.createElement('li');
+    listItem.classList.add('spell');
     listItem.appendChild(nameSpan);
     listItem.appendChild(timeSpan);
 
