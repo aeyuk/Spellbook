@@ -129,6 +129,7 @@ ul#s {
     padding: 0;
     display: block;
     float: left;
+    font-weight: bold;
 }
 
 ul#t {
