@@ -1,8 +1,8 @@
 //Add spell to list
-const AddToList = function(ev) {
-  ev.preventDefault()
+const addToSpellList = function(ev) {
+  ev.preventDefault();
 
-  const f = ev.target
+  const f = ev.target;
   let flag = true;
 
   if (f.spellName.value.length > 15) {
@@ -26,5 +26,18 @@ const AddToList = function(ev) {
   }
 }
 
-const form = document.querySelector('form')
-form.addEventListener('submit', AddToList)
+const addToTimeList = function(ev) {
+    ev.preventDefault();
+
+    const f = ev.target;
+    const ST = document.createElement("LI");
+    const spellTime = document.createTextNode(f.spellTime.value);
+    ST.appendChild(spellTime);
+    const TimesList = document.querySelector('#t').appendChild(ST);
+
+     f.reset();
+}
+
+const form = document.querySelector('form');
+form.addEventListener('submit', addToSpellList);
+form.addEventListener('submit', addToTimeList)
