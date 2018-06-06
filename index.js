@@ -31,9 +31,11 @@ const addToList = function(ev) {
 
   if (flag) {
     const nameSpan = document.createElement('span');
+    nameSpan.classList.add('name');
     nameSpan.textContent = f.spellName.value;
 
     const timeSpan = document.createElement('span');
+    timeSpan.classList.add('time');
     timeSpan.textContent = f.spellTime.value;
 
     const listItem = document.createElement('li');
@@ -41,7 +43,7 @@ const addToList = function(ev) {
     listItem.appendChild(timeSpan);
 
     const spellList = document.querySelector('#s').appendChild(listItem);
-    
+
 /*
     const SN = makeListElement();
     const spellName = document.createTextNode(f.spellName.value);
