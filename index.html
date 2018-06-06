@@ -9,29 +9,31 @@
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 </head>
 <body>
+    <img src="skull.png" id="skull" alt="">
+    <img src="quill.png" id="quill" alt="">
+
     <h1 id="title" >Spellbook</h1>
 
-    <main>
         <form>
-            <!-- <label for="spellName">Spell Name </label> -->
-            <input 
-                type="text" 
-                id="newSpell" 
-                name="spellName" 
-                placeholder="Enter a spell name"
-                autofocus
-            >
-            <input
-                type="text"
-                id="newLevel"
-                name="spellLevel"
-                placeholder="Enter spell difficulty"
-            >
-            <button type="submit">Submit</button>  
+            <div>
+                <input 
+                    type="text" 
+                    id="newSpell" 
+                    name="spellName" 
+                    placeholder="Enter a spell name"
+                    autofocus
+                >
+                <input
+                    type="time"
+                    id="newTime"
+                    name="spellTime"
+                >
+                <button type="submit">Submit</button> 
+            </div>
         </form>
-        
-            <ul class="spells" id="s"></ul>
-            <ul class="levels" id="l"></ul>
+    <main>
+        <ul class="spells" id="s"></ul>
+        <ul class="times" id="t"></ul>
     </main>
 
     <script src="index.js"></script>
