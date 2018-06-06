@@ -27,32 +27,6 @@ const addToList = function(ev) {
     ST.appendChild(spellTime);
     const TimesList = document.querySelector('#t').appendChild(ST);
 
-
-    /*
-    const spellName = document.createTextNode(f.spellName.value);
-    const SN = makeListElement().appendChild(spellName);
-    const namesList = document.querySelector('#s').appendChild(SN);
-    
-    const spellTime = document.createTextNode(f.spellTime.value);
-    const ST = makeListElement().appendChild(spellTime);
-    const timesList = document.querySelector('#t').appendChild(ST);
-  */
-  
-    /*
-    const spellsList = document.querySelector('#s')
-            .appendChild(makeListElement()
-            .appendChild(document
-            .createTextNode(f
-            .spellName.value
-            )));
-
-    const timesList = document.querySelector('#t')
-            .appendChild(makeListElement()
-            .appendChild(document
-            .createTextNode(f
-            .spellTime.value
-            )));
-*/
     f.reset()
   }
 }
