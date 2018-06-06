@@ -6,13 +6,22 @@ const makeSpanElement = function(name, value) {
 }
 
 
-const makeListElement = function(nameSpan, timeSpan) {
-  const el = document.createElement('li');
-  el.classList.add('spell');
-  el.appendChild(nameSpan);
-  el.appendChild(timeSpan);
-  return el;
+const makeListElement = function(spell) {
+  spellProperties = Object.keys(spell); //gets array of spans
+  const spanArray = spellProperties.map(function(prop) {
+    return makeSpanElement(prop, spell[prop]);
+  });
+
+  const listItem = document.createElement('li');
+  listItem.classList.add('spell');
+
+  spanArray.forEach(function(el) {
+    listItem.appendChild(el);
+  });
+
+  return listItem;
 }
+
 
 
 const addToList = function(ev) {
@@ -20,16 +29,18 @@ const addToList = function(ev) {
 
   const f = ev.target;
 
-
-    const nameSpan = makeSpanElement('name', f.spellName.value);
-    const timeSpan = makeSpanElement('time', f.spellTime.value);
-
-    const listItem = makeListElement(nameSpan, timeSpan);
-
-    const spellList = document.querySelector('#s').appendChild(listItem);
-
-    f.reset()
+  //spell obj
+  const spell = {
+    name: f.spellName.value,
+    time: f.spellTime.value,
   }
+
+  const listItem = makeListElement(spell);
+
+  const spellList = document.querySelector('#s').appendChild(listItem);
+
+  f.reset();
+}
 
 const form = document.querySelector('form');
 form.addEventListener('submit', addToList);
