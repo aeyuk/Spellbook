@@ -88,7 +88,7 @@ button[type="submit"] {
   align-self: stretch;
   padding-top: 0;
   padding-bottom: 0;
-  font-size: 1rem;
+  font-size: 10px;
   margin: 0;
   white-space: nowrap;
   display: inline-block;
@@ -116,23 +116,26 @@ main {
   margin-left: 10vw;
   height: calc(100vh - 18.5vw - 4rem);
   overflow-y: scroll;
-  font-size: 25px;
+  font-family: "Homemade Apple", cursive;
+  font-size: 20px;
   color: rgba(100, 50, 0, 0.8);
   padding: 1.5rem 4rem;
   box-shadow: 1px 1px 15px  rgba(0,0,0,0.4);
 }
 
+
 ul#s {
- list-style: none;
- display: block;
- float: left;
- padding: 0;
+    list-style: none;
+    padding: 0;
+    display: block;
+    float: left;
 }
 
 ul#t {
     list-style-type: none;
     float: left;
     padding: 1;
+    color: green;
 }
 
 .details {
