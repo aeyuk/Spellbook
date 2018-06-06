@@ -23,13 +23,6 @@ const addToList = function(ev) {
   const f = ev.target;
   let flag = true;
 
-  if (f.spellName.value.length > 15) {
-      flag = false;
-      alert("Error: exceeds character limit");
-      f.reset();
-  }
-
-  if (flag) {
     const nameSpan = document.createElement('span');
     nameSpan.classList.add('name');
     nameSpan.textContent = f.spellName.value;
@@ -58,7 +51,6 @@ const addToList = function(ev) {
 */
     f.reset()
   }
-}
 
 const form = document.querySelector('form');
 form.addEventListener('submit', addToList);
