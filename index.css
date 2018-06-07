@@ -167,6 +167,12 @@ ul#s {
     font-weight: 900;
 }
 
+.w3-circle {
+  background-color: black;
+  border: red;
+  height: 20px;
+}
+
 
 .details {
   font-size: 0.7em;

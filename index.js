@@ -37,7 +37,6 @@ const app = {
 
     const f = ev.target;
 
-    //spell obj
     const spell = {
       name: f.spellName.value,
       time: f.spellTime.value,
@@ -46,16 +45,23 @@ const app = {
     
     const listItem = this.makeListElement(spell);
 
-    spellArray.push(listItem);
+
+    //Create and append button
+    const button = document.createElement('button');
+    button.setAttribute("class", "w3-circle");
+    listItem.appendChild(button);
+    
+    //Push list items into array
+    spellArray.push(listItem.textContent);
     console.log(spellArray);
 
-    //make button
-    const button = document.createElement('button');
-    listItem.appendChild(button);
-
+    //Remove list item from array on click
     button.addEventListener('click', function(ev) {
       listItem.parentNode.removeChild(listItem);
-      spellArray.pop(listItem);
+      for (let i = 0; i < spellArray.length; i++) {
+        if (spellArray[i] === listItem.textContent)
+          spellArray.splice(i, 1);
+      }
       console.log(spellArray);
     });
     
