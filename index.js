@@ -46,21 +46,21 @@ const app = {
     
     const listItem = this.makeListElement(spell);
 
-    //make button
-    const button = document.createElement('button');
-    button.setAttribute("id", f.spellName.value)
-    listItem.appendChild(button);
-
-    button.addEventListener('click', function(ev) {
-      listItem.parentNode.removeChild(listItem)
-    });
-    
-    
     spellArray.push(listItem);
     console.log(spellArray);
 
-    const spellList = document.querySelector('#s').appendChild(listItem);
+    //make button
+    const button = document.createElement('button');
+    listItem.appendChild(button);
 
+    button.addEventListener('click', function(ev) {
+      listItem.parentNode.removeChild(listItem);
+      spellArray.pop(listItem);
+      console.log(spellArray);
+    });
+    
+    
+    const spellList = document.querySelector('#s').appendChild(listItem);
 
     f.reset();
 
