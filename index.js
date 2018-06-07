@@ -34,8 +34,8 @@ const app = {
     item.querySelector('button.delete')
         .addEventListener('click', this.removeSpell.bind(this, spell));
 
-    //////////////
 
+    
     return item;
   },
 
