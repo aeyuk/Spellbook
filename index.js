@@ -1,3 +1,4 @@
+const spellArray = [];
 const app = {
   init: function() {
     const form = document.querySelector('form');
@@ -6,10 +7,29 @@ const app = {
     })
   },
 
+  pressDelete: function() {
+    const button = document.getElementsByClassName('button');
+    button.addEventListener('submit', ev => {
+      this.removeFromList(ev);
+    })
+  },
+
+  removeFromList: function() {
+
+  },
+
   makeSpanElement: function(name, value) {
     const el = document.createElement('span');
     el.classList.add(name); //add class to span
     el.textContent = value; //change text
+    return el;
+  },
+
+  
+  makeButtonElement: function(name) {
+    const el = document.createElement('button');
+    el.classList.add();
+    el.setAttribute("type", "delete");
     return el;
   },
 
@@ -42,16 +62,17 @@ const app = {
       time: f.spellTime.value,
     } 
 
+    
     const listItem = this.makeListElement(spell);
+    listItem.appendChild(this.makeButtonElement());
+
+    spellArray.push(listItem);
+    console.log(spellArray);
 
     const spellList = document.querySelector('#s').appendChild(listItem);
 
     f.reset();
+
   },
-
-  addToArray: function(ev) {
-
-  }
 }
-
 app.init();
