@@ -10,6 +10,12 @@ const app = {
     })
   },
 
+  save: function() {
+    localStorage.setItem(
+      'spells',
+      JSON.stringify(this.spellArray)
+    );
+  },
 
   makeSpanElement: function(name, value) {
     const el = document.createElement('span');
@@ -71,6 +77,8 @@ const app = {
     const i = this.spellArray.indexOf(spell);
     this.spellArray.splice(i, 1);
     console.log(this.spellArray);
+    
+    this.save();
   }
 
 }
