@@ -177,6 +177,11 @@ button.fav {
   color: black;
 }
 
+button.move {
+  background-color: blue;
+  color: white;
+}
+
 .template {
   display: none;
 }

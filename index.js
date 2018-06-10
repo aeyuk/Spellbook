@@ -28,7 +28,6 @@ class App {
     }
   }
 
-  //add Spell function
 
   renderProperty(name, value) {
     const el = document.createElement('span');
@@ -50,9 +49,7 @@ class App {
         el.textContent = spell[property];
         el.setAttribute('title', spell[property]);
       }
-
     });
-
 
     //Delete button
     item
@@ -72,6 +69,14 @@ class App {
         this.toggleFavorite.bind(this, spell)
       );
 
+    //Move down button
+    item
+      .querySelector('button.down')
+      .addEventListener(
+        'click',
+        this.moveDown.bind(this, spell)
+      );
+
     return item;
   }
 
@@ -79,7 +84,24 @@ class App {
     const button = ev.target;
     const item = button.closest('.spell');
     spell.favorite = item.classList.toggle('fav');
+
     this.save();
+  }
+
+  moveDown(spell, ev) {
+    const button = ev.target;
+    const item = button.closest('.spell');
+
+    const i = this.spellArray.indexOf(spell);
+
+    if (i < this.spellArray.length - 1) {
+      this.list.insertBefore(item.nextSibling, item);
+      const nextSpell = this.spellArray[i + 1];
+      this.spellArray[i + 1] = spell;
+      this.spellArray[i] = nextSpell;
+
+      this.save();
+    }
   }
 
   addSpell(spell) {
