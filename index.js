@@ -1,31 +1,41 @@
-const app = {
-  init: function() {
+class App {
+  constructor() {
     this.spellArray = [];
     this.template = document.querySelector('.spell.template');
 
     const form = document.querySelector('form');
     form.addEventListener('submit', ev => {
       ev.preventDefault();
-      this.addToList(ev);
+      this.handleSubmit(ev);
     })
-  },
+  }
 
-  save: function() {
+  save() {
     localStorage.setItem(
       'spells',
       JSON.stringify(this.spellArray)
     );
-  },
+  }
 
-  makeSpanElement: function(name, value) {
+  load() {
+    const spellJSON = localStorage.getItem('spells');
+    const spellArray = JSON.parse(spellJSON);
+    if (spellArray) {
+      spellArray.forEach(this.addSpell.bind(this));
+    }
+  }
+
+  //add Spell function
+
+  makeSpanElement(name, value) {
     const el = document.createElement('span');
     el.classList.add(name); //add class to span
     el.textContent = value; //change text
     el.setAttribute('title', value);
     return el;
-  },
+  }
 
-  makeListElement: function(spell) {
+  makeListElement(spell) {
     const item = this.template.cloneNode(true);
     item.classList.remove('template');
 
@@ -33,22 +43,36 @@ const app = {
 
     spellProperties.forEach(property => {
       const el = item.querySelector(`.${property}`);
-      el.textContent = spell[property]
-      el.setAttribute('title', spell[property])
+      if (el) {
+        el.textContent = spell[property];
+        el.setAttribute('title', spell[property]);
+      }
     });
 
-    item.querySelector('button.delete')
-        .addEventListener('click', this.removeSpell.bind(this, spell));
-
-
+    item
+        .querySelector('button.delete')
+        .addEventListener('click', 
+        this.removeSpell.bind(this, spell));
     
     return item;
-  },
+  }
 
 
-  addToList: function(ev) {
-    ev.preventDefault();
+  removeSpell(spell, ev) {
+    //Removes from the DOM
+    const button = ev.target;
+    const item = button.closest('.spell');
+    item.parentNode.removeChild(item);
 
+    //Remove from array
+    const i = this.spellArray.indexOf(spell);
+    this.spellArray.splice(i, 1);
+    console.log(this.spellArray);
+
+    this.save();
+  }
+
+  handleSubmit(ev) {
     const f = ev.target;
 
     const spell = {
@@ -65,21 +89,8 @@ const app = {
 
     f.reset();
     f.spellName.focus;
-  },
-
-  removeSpell: function(spell, ev) {
-    //Removes from the DOM
-    const button = ev.target;
-    const item = button.closest('.spell');
-    item.parentNode.removeChild(item);
-
-    //Remove from array
-    const i = this.spellArray.indexOf(spell);
-    this.spellArray.splice(i, 1);
-    console.log(this.spellArray);
-    
-    this.save();
   }
-
 }
-app.init();
+
+
+const app = new App();
