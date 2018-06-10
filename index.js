@@ -54,10 +54,10 @@ class App {
     //Delete button
     item
         .querySelector('button.delete')
-        .addEventListener('click', 
-        this.removeSpell.bind(this, spell));
+        .addEventListener(
+          'click', 
+          this.removeSpell.bind(this, spell));
     
-
     //Favorite button
     if (spell.favorite) {
       item.classList.add('fav');
@@ -75,6 +75,13 @@ class App {
       .addEventListener(
         'click',
         this.moveDown.bind(this, spell)
+      );
+
+    item
+      .querySelector('button.up')
+      .addEventListener(
+        'click',
+        this.moveUp.bind(this, spell)
       );
 
     return item;
@@ -99,6 +106,22 @@ class App {
       const nextSpell = this.spellArray[i + 1];
       this.spellArray[i + 1] = spell;
       this.spellArray[i] = nextSpell;
+
+      this.save();
+    }
+  }
+
+  moveUp(spell, ev) {
+    const button = ev.target;
+    const item = button.closest('.spell');
+    
+    const i = this.spellArray.indexOf(spell);
+    
+    if (i > 0) {
+      this.list.insertBefore(item, item.previousSibling);
+      const previousSPell = this.spellArray[i - 1];
+      this.spellArray[i - 1] = spell;
+      this.spellArray[i] = previousSpell;
 
       this.save();
     }

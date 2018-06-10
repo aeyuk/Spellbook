@@ -182,6 +182,11 @@ button.move {
   color: white;
 }
 
+.spell.fav {
+  background-color: gold;
+  opacity: 0.5;
+}
+
 .template {
   display: none;
 }
