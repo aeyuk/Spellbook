@@ -30,7 +30,7 @@ class App {
 
   //add Spell function
 
-  makeSpanElement(name, value) {
+  renderProperty(name, value) {
     const el = document.createElement('span');
     el.classList.add(name); //add class to span
     el.textContent = value; //change text
@@ -38,7 +38,7 @@ class App {
     return el;
   }
 
-  makeListElement(spell) {
+  renderItem(spell) {
     const item = this.template.cloneNode(true);
     item.classList.remove('template');
 
@@ -65,7 +65,7 @@ class App {
   addSpell(spell) {
     this.spellArray.push(spell);
     console.log(this.spellArray);
-    const item = this.makeListElement(spell);
+    const item = this.renderItem(spell);
     this.list.appendChild(item);
   }
 
