@@ -172,6 +172,11 @@ button.delete {
   color: white;
 }
 
+button.fav {
+  background-color: gold;
+  color: black;
+}
+
 .template {
   display: none;
 }
