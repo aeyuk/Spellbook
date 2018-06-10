@@ -2,12 +2,15 @@ class App {
   constructor() {
     this.spellArray = [];
     this.template = document.querySelector('.spell.template');
+    this.list = document.querySelector('#s');
+
+    this.load();
 
     const form = document.querySelector('form');
     form.addEventListener('submit', ev => {
       ev.preventDefault();
       this.handleSubmit(ev);
-    })
+    });
   }
 
   save() {
@@ -49,6 +52,8 @@ class App {
       }
     });
 
+
+  //delete
     item
         .querySelector('button.delete')
         .addEventListener('click', 
@@ -57,6 +62,12 @@ class App {
     return item;
   }
 
+  addSpell(spell) {
+    this.spellArray.push(spell);
+    console.log(this.spellArray);
+    const item = this.makeListElement(spell);
+    this.list.appendChild(item);
+  }
 
   removeSpell(spell, ev) {
     //Removes from the DOM
@@ -80,12 +91,8 @@ class App {
       time: f.spellTime.value,
     } 
 
-    this.spellArray.push(spell);
-    console.log(this.spellArray);
-
-    
-    const listItem = this.makeListElement(spell);
-    const spellList = document.querySelector('#s').appendChild(listItem);
+    this.addSpell(spell);
+    this.save();
 
     f.reset();
     f.spellName.focus;
