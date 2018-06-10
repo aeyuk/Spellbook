@@ -50,16 +50,36 @@ class App {
         el.textContent = spell[property];
         el.setAttribute('title', spell[property]);
       }
+
     });
 
 
-  //delete
+    //Delete button
     item
         .querySelector('button.delete')
         .addEventListener('click', 
         this.removeSpell.bind(this, spell));
     
+
+    //Favorite button
+    if (spell.favorite) {
+      item.classList.add('fav');
+    }
+    item
+      .querySelector('button.fav')
+      .addEventListener(
+        'click',
+        this.toggleFavorite.bind(this, spell)
+      );
+
     return item;
+  }
+
+  toggleFavorite(spell, ev) {
+    const button = ev.target;
+    const item = button.closest('.spell');
+    spell.favorite = item.classList.toggle('fav');
+    this.save();
   }
 
   addSpell(spell) {
@@ -89,6 +109,7 @@ class App {
     const spell = {
       name: f.spellName.value,
       time: f.spellTime.value,
+      favorite: false,
     } 
 
     this.addSpell(spell);
