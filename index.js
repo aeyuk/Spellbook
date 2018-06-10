@@ -84,6 +84,13 @@ class App {
         this.moveUp.bind(this, spell)
       );
 
+    item
+      .querySelector('button.spin')
+      .addEventListener(
+        'click',
+        this.spinSpell.bind(this, spell)
+      );
+
     return item;
   }
 
@@ -127,6 +134,15 @@ class App {
     }
   }
 
+  spinSpell(spell, ev) {
+    const button = ev.target;
+    const item = button.closest('.spell');
+    spell.spinner = item.classList.add('spinner');
+    spell.spinner = true;
+
+    this.save(); 
+  }
+
   addSpell(spell) {
     this.spellArray.push(spell);
     console.log(this.spellArray);
@@ -155,6 +171,7 @@ class App {
       name: f.spellName.value,
       time: f.spellTime.value,
       favorite: false,
+      spinner: false,
     } 
 
     this.addSpell(spell);
