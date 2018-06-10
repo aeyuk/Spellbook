@@ -126,7 +126,7 @@ class App {
     
     if (i > 0) {
       this.list.insertBefore(item, item.previousSibling);
-      const previousSPell = this.spellArray[i - 1];
+      const previousSpell = this.spellArray[i - 1];
       this.spellArray[i - 1] = spell;
       this.spellArray[i] = previousSpell;
 
@@ -137,8 +137,7 @@ class App {
   spinSpell(spell, ev) {
     const button = ev.target;
     const item = button.closest('.spell');
-    spell.spinner = item.classList.add('spinner');
-    spell.spinner = true;
+    spell.spinner = item.classList.toggle('spinner');
 
     this.save(); 
   }
