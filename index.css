@@ -203,7 +203,6 @@ button.spin {
 
 .spinner {
   animation-name: spinner;
-  animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-duration: 3s;
   transform-style: preserve-3d;
